@@ -34,7 +34,7 @@ public class Worker extends Person {
         }
 
     }
-
+//override method
     @Override
     public String toString() {
         return "Worker{" +
