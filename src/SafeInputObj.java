@@ -17,6 +17,42 @@ public class SafeInputObj {
         return null;
     }
 
+    public static Boolean getYNConfirm(Scanner in, String s) { System.out.print(s + " "); // Prompt the user
+        String response;
+        while (true) { // Loop until valid input is received
+            System.out.print(s + " "); // Prompt the user
+            response = in.nextLine().trim().toLowerCase(); // Read input and convert to lowercase
+
+            if (response.equals("y")) {
+                return true; // User confirmed
+            } else if (response.equals("n")) {
+                return false; // User did not confirm
+            } else {
+                System.out.println("Invalid input. Please enter 'y' or 'n'."); // Error message
+            }
+        }
+    }
+
+    public static int getRangedInt(Scanner in, String s, int i, int i1) {
+        String response;
+        while (true) { // Loop until valid input is received
+            System.out.print(s + " "); // Prompt the user
+            response = in.nextLine(); // Read input
+
+            try {
+                int num = Integer.parseInt(response); // Convert input to integer
+                if (num >= i && num <= i1) {
+                    return num; // Return the integer if it is within the specified range
+                } else {
+                    System.out.println("Invalid input. Please enter a number between " + i + " and " + i1 + "."); // Error message
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number."); // Error message
+            }
+        }
+
+    }
+
 
     /**
      * Get a String which contains at least one character

@@ -29,14 +29,14 @@ public class PersonGenerator {
             String firstName = SafeInputObj.getNonZeroLenString(in, "Enter the first name:");
             String lastName = SafeInputObj.getNonZeroLenString(in, "Enter the last name: ");
             String title = SafeInputObj.getNonZeroLenString(in, "Enter the title ");
-            int YOB = SafeInput.getRangedInt(in, "Enter the year of birth [1900-2020]: ", 1900, 2020);
+            int YOB = SafeInputObj.getRangedInt(in, "Enter the year of birth [1900-2020]: ", 1900, 2020);
 /* Code not currently needed anymore
             personRec = ID + "," + firstName + "," + lastName + "," + title + "," + YOB;
             folks.add(personRec);*/
             Person person = new Person(firstName, lastName, ID, title, YOB);
             folks.add(person);
             //changed prompt to be more clear
-            done = SafeInput.getYNConfirm(in, "Are you done adding persons? (y/n)? ");
+            done = SafeInputObj.getYNConfirm(in, "Are you done adding persons? (y/n)? ");
 
 
         } while (!done);
