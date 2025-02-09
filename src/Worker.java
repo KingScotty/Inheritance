@@ -18,20 +18,17 @@ public class Worker extends Person {
             return regularPay + overtimePay;
 
         }
-        return hourlyRate * hoursWorked;
 
-
-        public void displayWeeklyPay ( double hoursWorked){
-            double regularHours = Math.min(40, hoursWorked) * hourlyRate;
-            double overtimeHours = Math.max(0, hoursWorked - 40) * hourlyRate * 1.5;
-            double totalPay = regularHours + overtimeHours;
-            System.out.println("Worker: " + getFirstName() + " " + getLastName());
-            System.out.println("Regular Hours: " + hoursWorked + " @ $" + hourlyRate + "/hr = $" + (hoursWorked * hourlyRate));
-            System.out.println("Overtime Hours: " + overtimeHours + " @ $" + (hourlyRate * 1.5) + "/hr = $" + (overtimeHours * hourlyRate * 1.5));
-            System.out.println("Total Weekly Pay: $" + totalPay);
-            System.out.println("-------------------------");
-
-        }
+    }
+    public void displayWeeklyPay (double hoursWorked) {
+        double regularHours = Math.min(40, hoursWorked) * hourlyRate;
+        double overtimeHours = Math.max(0, hoursWorked - 40) * hourlyRate * 1.5;
+        double totalPay = regularHours + overtimeHours;
+        System.out.println("Worker: " + getFirstName() + " " + getLastName());
+        System.out.println("Regular Hours: " + hoursWorked + " @ $" + hourlyRate + "/hr = $" + (hoursWorked * hourlyRate));
+        System.out.println("Overtime Hours: " + overtimeHours + " @ $" + (hourlyRate * 1.5) + "/hr = $" + (overtimeHours * hourlyRate * 1.5));
+        System.out.println("Total Weekly Pay: $" + totalPay);
+        System.out.println("-------------------------");
 
     }
 //override method
@@ -41,5 +38,26 @@ public class Worker extends Person {
                 "hourlyRate=" + hourlyRate +
                 '}';
     }
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + hourlyRate;
+    }
 
+    @Override
+    public String toXML() {
+        return super.toXML() + "<hourlyRate>" + hourlyRate + "</hourlyRate>\n";
+    }
+
+    @Override
+    public String toJSON() {
+        return super.toJSON().replace("}", ", \"hourlyRate\": " + hourlyRate + "}");
+    }
+
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public void setHourlyRate(double hourlyRate) {
+        this.hourlyRate = hourlyRate;
+    }
 }
