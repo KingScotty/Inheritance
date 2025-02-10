@@ -1,0 +1,42 @@
+@startuml
+class Person {
+    -String firstName
+    -String lastName
+    -String ID
+    -String title
+    -int YOB
+    +Person(String firstName, String lastName, String ID, String title, int YOB)
+    +String getFirstName()
+    +String getLastName()
+    +String getID()
+    +String getTitle()
+    +int getYOB()
+}
+
+class Worker {
+    -double hourlyRate
+    +Worker(String firstName, String lastName, String ID, String title, int YOB, double hourlyRate)
+    +double getHourlyRate()
+    +void setHourlyRate(double hourlyRate)
+    +double calculatePay(double hoursWorked)
+    +void displayWeeklyPay(double hoursWorked)
+    +String toCSV()
+    +String toXML()
+    +String toJSON()
+}
+
+class Salary {
+    -double annualSalary
+    +Salary(String firstName, String lastName, String ID, String title, int YOB, double annualSalary)
+    +double getAnnualSalary()
+    +void setAnnualSalary(double annualSalary)
+    +double calculatePay(double hoursWorked)
+    +void displayWeeklyPay(double hoursWorked)
+    +String toCSV()
+    +String toXML()
+    +String toJSON()
+}
+
+Person <|-- Worker
+Worker <|-- Salary
+@enduml
