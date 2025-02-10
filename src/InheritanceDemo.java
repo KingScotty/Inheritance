@@ -21,7 +21,7 @@ public class InheritanceDemo {
         workers.add(salaryWorker2);
         workers.add(salaryWorker3);
 
-        // Step 4: Simulate Weekly Pay Periods
+        // Step 4:Weekly Pay Periods
         int[] weeklyHours = {40, 50, 40}; // Array of hours for each week
         for (int week = 1; week <= 3; week++) {
             System.out.println("===== Week " + week + " =====");
